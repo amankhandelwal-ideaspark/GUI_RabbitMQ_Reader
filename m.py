@@ -1,6 +1,7 @@
 from tkinter import *
 from datasetup import DataSetup
 from helpmenu.about import About
+from addQueue import AddQueue
 
 root = Tk()
 
@@ -17,7 +18,7 @@ def donothing():
 menubar = Menu(root)
 
 filemenu = Menu(menubar, tearoff = 0)
-filemenu.add_command(label="New", command = donothing)
+filemenu.add_command(label="New", command = AddQueue(root).load)
 filemenu.add_command(label = "Open", command = donothing)
 filemenu.add_command(label = "Save", command = donothing)
 filemenu.add_command(label = "Save as...", command = donothing)
