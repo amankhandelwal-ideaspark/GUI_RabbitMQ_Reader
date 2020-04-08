@@ -2,15 +2,17 @@ from tkinter import *
 from datasetup import DataSetup
 from helpmenu.about import About
 
+root = Tk()
+
 db = DataSetup()
-about = About()
+about = About(root)
 
 def donothing():
     filewin = Toplevel(root)
     button = Button(filewin, text="Do nothing button")
     button.pack()
 
-root = Tk()
+
 
 menubar = Menu(root)
 
