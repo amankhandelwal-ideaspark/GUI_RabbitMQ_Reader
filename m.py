@@ -49,11 +49,17 @@ menubar.add_cascade(label = "Help", menu = helpmenu)
 # opening window
 
 var = StringVar()
-label = Label(root,textvariable = var).grid(row=1,column=2)
-var.set("sample text")
+label = Label(root,textvariable = var,width=15).grid(row=1,column=2)
+var.set("S.No.")
+Label(root,text='IP',width=15).grid(row=1,column=3)
+Label(root,text='Port',width=15).grid(row=1,column=4)
+Label(root,text='Virtual Host',width=15).grid(row=1,column=6)
+Label(root,text='Username',width=15).grid(row=1,column=8)
+Label(root,text='Queue Name',width=15).grid(row=1,column=10)
+Label(root,text='Actions',width=15).grid(row=1,column=12)
 
 var = StringVar()
-label = Label(root,textvariable = var).grid(row=2,column=1)
+label = Label(root,textvariable = var).grid(row=2,column=2)
 var.set("sample text")
 
 root.config(menu=menubar)
