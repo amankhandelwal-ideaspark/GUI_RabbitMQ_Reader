@@ -44,5 +44,18 @@ helpmenu.add_command(label = "About", command = about.load)
 
 menubar.add_cascade(label = "Help", menu = helpmenu)
 
+
+# opening window
+
+var = StringVar()
+label = Label(root,textvariable = var).grid(row=1,column=2)
+var.set("sample text")
+
+var = StringVar()
+label = Label(root,textvariable = var).grid(row=2,column=1)
+var.set("sample text")
+
 root.config(menu=menubar)
+root.minsize(450, 250)
+root.title('RabbitMQ Reader')
 root.mainloop()
