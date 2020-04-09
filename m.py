@@ -2,6 +2,7 @@ from tkinter import *
 from datasetup import DataSetup
 from helpmenu.about import About
 from addQueue import AddQueue
+from rabbitmq.queueSize import QueueSize
 
 root = Tk()
 
@@ -47,7 +48,7 @@ var.set("sample text")
 
 con = db.getDbCon()
 cur = con.cursor()
-cur.execute('select _rowid_,ipurl,port,virtual_host,uname,queue_name from queue_details')
+cur.execute('select _rowid_,ipurl,port,virtual_host,uname,queue_name,pword from queue_details')
 rows = cur.fetchall()
 
 rn = 2
@@ -58,13 +59,14 @@ for row in rows:
     vh = row[3]
     uname = row[4]
     qn = row[5]
+    pword = row[6]
     Label(root,text=sn).grid(row=rn,column=2)
     Label(root,text=ip).grid(row=rn,column=3)
     Label(root,text=port).grid(row=rn,column=4)
     Label(root,text=vh).grid(row=rn,column=6)
     Label(root,text=uname).grid(row=rn,column=8)
     Label(root,text=qn).grid(row=rn,column=10)
-    Label(root,text='View size').grid(row=rn,column=12)
+    Button(root,text='View size',command=lambda:QueueSize(root).getSize(ip,port,vh,uname,qn,pword)).grid(row=rn,column=12)
     rn = rn + 1
 
 print('rows fetched')
