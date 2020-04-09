@@ -6,8 +6,9 @@ class About:
         self.root = r
     
     def load(self):
-        filewin = Toplevel(self.root)
-        button = Button(filewin, text="Do n")
-        button.pack()
+        window = Toplevel(self.root)
+        Label(window,text='This queue reader was My First GUI based application.').grid(row=1,column=1)
+        button = Button(window, text="Close").grid(row=2,column=2)
+        #button.pack()
         #(self.root).mainloop()
         #(self.root).withdraw()
