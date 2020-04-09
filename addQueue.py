@@ -6,10 +6,10 @@ class AddQueue:
         self.root = r
 
     def saveInput(self,ip,port,host,user,pword,qn):
-        con = DataSetup.getDbCon()
+        con = DataSetup().getDbCon()
         cur = con.cursor()
-        q = ""
-        cur.execute("")
+        q = f"INSERT INTO queue_details(ipurl,port,virtual_host,uname,pword,queue_name) VALUES('{ip}','{port}','{host}','{user}','{pword}','{qn}')"
+        cur.execute(q)
         print('Record received')
 
     def load(self):
