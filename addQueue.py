@@ -8,8 +8,11 @@ class AddQueue:
     def saveInput(self,ip,port,host,user,pword,qn):
         con = DataSetup().getDbCon()
         cur = con.cursor()
-        q = f"INSERT INTO queue_details(ipurl,port,virtual_host,uname,pword,queue_name) VALUES('{ip}','{port}','{host}','{user}','{pword}','{qn}')"
-        cur.execute(q)
+        dat = (ip,port,host,user,pword,qn)
+        q = f"INSERT INTO queue_details(ipurl,port,virtual_host,uname,pword,queue_name) VALUES(?,?,?,?,?,?)"
+        cur.execute(q,dat)
+        print(cur.lastrowid)
+        con.commit()
         print('Record received')
 
     def load(self):
