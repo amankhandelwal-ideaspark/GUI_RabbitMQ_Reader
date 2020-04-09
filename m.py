@@ -67,7 +67,7 @@ for row in rows:
     Label(root,text=vh).grid(row=rn,column=6)
     Label(root,text=uname).grid(row=rn,column=8)
     Label(root,text=qn).grid(row=rn,column=10)
-    Button(root,text='View size',command=lambda:QueueSize(root).getSize(rows[index][1],rows[index][2],rows[index][3],rows[index][4],rows[index][5],rows[index][6])).grid(row=rn,column=12)
+    Button(root,text='View size',command=lambda index=index:QueueSize(root).getSize(rows[index][1],rows[index][2],rows[index][3],rows[index][4],rows[index][5],rows[index][6])).grid(row=rn,column=12)
     rn = rn + 1
     index = index + 1
 
