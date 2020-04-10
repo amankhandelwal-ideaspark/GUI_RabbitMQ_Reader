@@ -32,6 +32,7 @@ menubar.add_cascade(label = "Help", menu = helpmenu)
 # opening window
 
 var = StringVar()
+Label(root,text='Name',width=15).grid(row=1,column=1)
 label = Label(root,textvariable = var,width=15).grid(row=1,column=2)
 var.set("S.No.")
 Label(root,text='IP',width=15).grid(row=1,column=3)
@@ -48,7 +49,7 @@ var.set("sample text")
 
 con = db.getDbCon()
 cur = con.cursor()
-cur.execute('select _rowid_,ipurl,port,virtual_host,uname,queue_name,pword from queue_details')
+cur.execute('select _rowid_,ipurl,port,virtual_host,uname,queue_name,pword,alias from queue_details')
 rows = cur.fetchall()
 
 rn = 2
@@ -61,6 +62,8 @@ for row in rows:
     uname = row[4]
     qn = row[5]
     pword = row[6]
+    alias = row[7]
+    Label(root,text=alias).grid(row=rn,column=1)
     Label(root,text=sn).grid(row=rn,column=2)
     Label(root,text=ip).grid(row=rn,column=3)
     Label(root,text=port).grid(row=rn,column=4)

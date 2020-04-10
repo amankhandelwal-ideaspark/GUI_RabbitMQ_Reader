@@ -11,7 +11,12 @@ class DataSetup:
         with open('sql/queue_details.sql') as f:
             q = f.read()
         cur = self.con.cursor()
-        cur.execute(q)
+        q = q.split(";")
+        for query in q:
+            try:
+                cur.execute(query)
+            except:
+                print(query, ' Cannot be executed')
 
     def getDbCon(self):
         return self.con
